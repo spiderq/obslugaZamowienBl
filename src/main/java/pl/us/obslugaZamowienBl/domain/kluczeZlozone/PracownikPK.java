@@ -3,10 +3,7 @@ package pl.us.obslugaZamowienBl.domain.kluczeZlozone;
 import pl.us.obslugaZamowienBl.domain.Osoba;
 import pl.us.obslugaZamowienBl.domain.Stanowisko;
 
-import javax.persistence.Embeddable;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -15,27 +12,25 @@ import java.io.Serializable;
 @Embeddable
 public class PracownikPK implements Serializable {
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idOsoba")
-    private Osoba osoba;
+    @Column(name = "idOsoba")
+    private Osoba osobaId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idStanowisko")
-    private Stanowisko stanowisko;
+    @Column(name = "idStanowisko")
+    private Stanowisko stanowiskoId;
 
-    public Osoba getOsoba() {
-        return osoba;
+    public Osoba getOsobaId() {
+        return osobaId;
     }
 
-    public void setOsoba(Osoba osoba) {
-        this.osoba = osoba;
+    public void setOsobaId(Osoba osobaId) {
+        this.osobaId = osobaId;
     }
 
-    public Stanowisko getStanowisko() {
-        return stanowisko;
+    public Stanowisko getStanowiskoId() {
+        return stanowiskoId;
     }
 
-    public void setStanowisko(Stanowisko stanowisko) {
-        this.stanowisko = stanowisko;
+    public void setStanowiskoId(Stanowisko stanowiskoId) {
+        this.stanowiskoId = stanowiskoId;
     }
 }

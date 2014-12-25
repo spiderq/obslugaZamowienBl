@@ -22,6 +22,14 @@ public class Pracownik implements Serializable {
     @JoinColumn(name = "idKategoria")
     private Kategoria kategoria;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idOsoba", insertable = false, updatable = false)
+    private Osoba osoba;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idStanowisko", insertable = false, updatable = false)
+    private Stanowisko stanowisko;
+
     public PracownikPK getId() {
         return id;
     }
@@ -44,5 +52,21 @@ public class Pracownik implements Serializable {
 
     public void setKategoria(Kategoria kategoria) {
         this.kategoria = kategoria;
+    }
+
+    public Osoba getOsoba() {
+        return osoba;
+    }
+
+    public void setOsoba(Osoba osoba) {
+        this.osoba = osoba;
+    }
+
+    public Stanowisko getStanowisko() {
+        return stanowisko;
+    }
+
+    public void setStanowisko(Stanowisko stanowisko) {
+        this.stanowisko = stanowisko;
     }
 }

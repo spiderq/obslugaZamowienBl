@@ -12,27 +12,25 @@ import java.io.Serializable;
 @Embeddable
 public class ListaDanPK implements Serializable {
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idZamowienie")
-    private Zamowienie zamowienie;
+    @Column(name = "idZamowienie")
+    private Integer zamowienieId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idDanie")
-    private Danie danie;
+    @Column(name = "idDanie")
+    private Integer danieId;
 
-    public Zamowienie getZamowienie() {
-        return zamowienie;
+    public Integer getZamowienieId() {
+        return zamowienieId;
     }
 
-    public void setZamowienie(Zamowienie zamowienie) {
-        this.zamowienie = zamowienie;
+    public void setZamowienieId(Integer zamowienieId) {
+        this.zamowienieId = zamowienieId;
     }
 
-    public Danie getDanie() {
-        return danie;
+    public Integer getDanieId() {
+        return danieId;
     }
 
-    public void setDanie(Danie danie) {
-        this.danie = danie;
+    public void setDanieId(Integer danieId) {
+        this.danieId = danieId;
     }
 }

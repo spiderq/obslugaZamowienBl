@@ -2,10 +2,7 @@ package pl.us.obslugaZamowienBl.domain;
 
 import pl.us.obslugaZamowienBl.domain.kluczeZlozone.ListaDanPK;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -21,6 +18,14 @@ public class ListaDan implements Serializable {
     @Column(name = "ilosc")
     private Integer ilosc;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idZamowienie", insertable = false, updatable = false)
+    private Zamowienie zamowienie;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idDanie", insertable = false, updatable = false)
+    private Danie danie;
+
     public ListaDanPK getId() {
         return id;
     }
@@ -35,5 +40,21 @@ public class ListaDan implements Serializable {
 
     public void setIlosc(Integer ilosc) {
         this.ilosc = ilosc;
+    }
+
+    public Zamowienie getZamowienie() {
+        return zamowienie;
+    }
+
+    public void setZamowienie(Zamowienie zamowienie) {
+        this.zamowienie = zamowienie;
+    }
+
+    public Danie getDanie() {
+        return danie;
+    }
+
+    public void setDanie(Danie danie) {
+        this.danie = danie;
     }
 }
