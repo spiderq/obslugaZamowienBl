@@ -1,5 +1,7 @@
 package pl.us.obslugaZamowienBl.domain;
 
+import pl.us.obslugaZamowienBl.domain.kluczeZlozone.ListaSkladnikowPK;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -10,12 +12,15 @@ import java.io.Serializable;
 @Table(name = "ListaSkladnikow")
 public class ListaSkladnikow implements Serializable {
 
+    @EmbeddedId
+    private ListaSkladnikowPK id;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idDanie")
+    @JoinColumn(name = "idDanie", insertable = false, updatable = false)
     private Danie danie;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idSkladnik")
+    @JoinColumn(name = "idSkladnik", insertable = false, updatable = false)
     private Skladnik skladnik;
 
     public Danie getDanie() {

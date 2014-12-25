@@ -13,24 +13,24 @@ import java.io.Serializable;
 public class PracownikPK implements Serializable {
 
     @Column(name = "idOsoba")
-    private Osoba osobaId;
+    private Integer osobaId;
 
     @Column(name = "idStanowisko")
-    private Stanowisko stanowiskoId;
+    private Integer stanowiskoId;
 
-    public Osoba getOsobaId() {
+    public Integer getOsobaId() {
         return osobaId;
     }
 
-    public void setOsobaId(Osoba osobaId) {
+    public void setOsobaId(Integer osobaId) {
         this.osobaId = osobaId;
     }
 
-    public Stanowisko getStanowiskoId() {
+    public Integer getStanowiskoId() {
         return stanowiskoId;
     }
 
-    public void setStanowiskoId(Stanowisko stanowiskoId) {
+    public void setStanowiskoId(Integer stanowiskoId) {
         this.stanowiskoId = stanowiskoId;
     }
 }

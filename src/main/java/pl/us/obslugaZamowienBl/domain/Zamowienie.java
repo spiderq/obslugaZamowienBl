@@ -25,11 +25,17 @@ public class Zamowienie implements Serializable {
     private Date dataZamowienia;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idPracownikKasa")
+    @JoinColumns({
+            @JoinColumn(name = "idPracownikKasa"),
+            @JoinColumn(name = "idStanowiskoKasa")
+    })
     private Pracownik pracownikKasa;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idPracownikKierownik")
+    @JoinColumns({
+            @JoinColumn(name = "idPracownikKierownik"),
+            @JoinColumn(name = "idStanowiskoKierownik")
+    })
     private Pracownik pracownikKierownik;
 
     public Integer getId() {
